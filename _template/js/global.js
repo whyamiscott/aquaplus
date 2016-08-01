@@ -21,7 +21,7 @@ $(document).ready(function() {
 	        });
 
 			var myIcon = DG.icon({
-			    iconUrl: 'img/map-target.png',
+			    iconUrl: '/img/map-target.png',
 			    iconSize: [128, 150],
 			    iconAnchor: [64, 150]
 			});

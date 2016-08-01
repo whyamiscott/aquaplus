@@ -1,0 +1,91 @@
+doctype html
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="x-ua-compatible", content="ie=edge")
+		title Заказ воды
+		meta(name="description", content="")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		link(rel="apple-touch-icon" href="apple-touch-icon.png")
+		link(rel="stylesheet" href="css/main.css")
+	body
+		<!--[if lt IE 8]><p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите</a> свой браузер.</p><![endif]-->
+
+		div(class="page")
+			include ../blocks/header.jade
+			
+			div(class="content")
+				ul(class="breadcrumbs")
+					li(class="breadcrumbs__item")
+						a(href="#", class="breadcrumbs__link") Главная
+					li(class="breadcrumbs__item")
+						span(class="breadcrumbs__link breadcrumbs__link--current") Продукция
+				
+				h1(class="main-title") Наша продукция
+				
+				ul(class="products")
+					li(class="product", rel="0.5")
+						div(class="product__photo")
+							span(class="vertical-helper vertical-helper--bottom")
+							img(class="product__img", src="img/bottle05.png", alt="Вода Байкала")
+						p(class="product__title") Вода Байкала 0.5&nbsp;л
+						p(class="product__description") Описание продукта, самое важное
+						span(class="button button--product make-order") Заказать
+					li(class="product", rel="1")
+						div(class="product__photo")
+							span(class="vertical-helper vertical-helper--bottom")
+							img(class="product__img", src="img/bottle1.png", alt="Вода Байкала")
+						p(class="product__title") Вода Байкала 1&nbsp;л
+						p(class="product__description") Описание продукта, самое важное 
+						span(class="button button--product make-order") Заказать
+					li(class="product", rel="1.5")
+						div(class="product__photo")
+							span(class="vertical-helper vertical-helper--bottom")
+							img(class="product__img", src="img/bottle15.png", alt="Вода Байкала")
+						p(class="product__title") Вода Байкала 1.5&nbsp;л
+						p(class="product__description") Описание продукта, самое важное
+						span(class="button button--product make-order") Заказать
+					li(class="product", rel="6.5")
+						div(class="product__photo")
+							span(class="vertical-helper vertical-helper--bottom")
+							img(class="product__img", src="img/bottle65.png", alt="Вода Байкала")
+						p(class="product__title") Вода Байкала 6.5&nbsp;л
+						p(class="product__description") Описание продукта, самое важное
+						span(class="button button--product make-order") Заказать
+						
+			div(class="fullscreen-form", id="fullscreen-form")
+				div(class="fullscreen-form__column")
+					span(class="vertical-helper vertical-helper--middle")
+					img(class="fullscreen-form__bottle-img", src="img/full-bottles/05.png", alt="Вода Байкала", id="bottle05")
+					img(class="fullscreen-form__bottle-img", src="img/full-bottles/15.png", alt="Вода Байкала", id="bottle15")
+					img(class="fullscreen-form__bottle-img", src="img/full-bottles/1.png", alt="Вода Байкала", id="bottle1")
+					img(class="fullscreen-form__bottle-img", src="img/full-bottles/65.png", alt="Вода Байкала", id="bottle65")
+				div(class="fullscreen-form__column")
+					div(class="fullscreen-form__close", id="close-fullscreen-form")
+						svg(class="fullscreen-form__close-icon", xmlns="http://www.w3.org/2000/svg", version="1.2", baseProfile="tiny", viewBox="0 0 25 25")
+							path(d="M14.7 12.5l9.8-9.8c.6-.6.6-1.6 0-2.2-.6-.6-1.6-.6-2.2 0l-9.8 9.8L2.7.5C2.1-.1 1.1-.1.5.5c-.6.6-.6 1.6 0 2.2l9.8 9.8-9.8 9.8c-.6.6-.6 1.6 0 2.2.3.3.7.5 1.1.5s.8-.2 1.1-.5l9.8-9.8 9.8 9.8c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.6 0-2.2l-9.8-9.8z")
+					span(class="vertical-helper vertical-helper--middle")
+					form(class="form form--fullscreen")
+						p(class="form__title") Оставьте свои контактные данные, и&nbsp;мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время
+						input(type="text", class="text-input form__input", placeholder="Ваше имя")
+						input(type="text", class="text-input form__input", placeholder="Ваш телефон")
+						input(type="text", class="text-input form__input", placeholder="Ваш e-mail")
+						input(type="hidden", id="bottle-volume", val="")
+						input(type="submit", class="button form__btn", value="Заказать")
+						div(class="form__footer")
+							div(class="form-contacts")
+								div(class="form-contacts__column")
+									p(class="form-contacts__text form-contacts__text--bold") Телефон
+									p(class="form-contacts__text form-contacts__text--bold") E-mail
+								div(class="form-contacts__column")
+									p(class="form-contacts__text") 8 3952 00 00 00
+									p(class="form-contacts__text") vodab@gmail.com
+					p(class="form-success-msg form-success-msg--fullscreen")
+						| Ваша заявка 
+						span(class="red-text") принята, 
+						| мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время.
+						
+		include ../blocks/footer.jade
+		
+		script(src="js/vendor/vendor-min.js")
+		script(src="js/global.js")

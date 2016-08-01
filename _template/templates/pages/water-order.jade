@@ -1,0 +1,55 @@
+doctype html
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="x-ua-compatible", content="ie=edge")
+		title Заказ воды
+		meta(name="description", content="")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		link(rel="apple-touch-icon" href="apple-touch-icon.png")
+		link(rel="stylesheet" href="css/main.css")
+	body
+		<!--[if lt IE 8]><p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите</a> свой браузер.</p><![endif]-->
+
+		div(class="page")
+			include ../blocks/header.jade
+			
+			div(class="content")
+				ul(class="breadcrumbs")
+					li(class="breadcrumbs__item")
+						a(href="#", class="breadcrumbs__link") Главная
+					li(class="breadcrumbs__item")
+						span(class="breadcrumbs__link breadcrumbs__link--current") Заказ воды
+				
+				h1(class="main-title") Заказ воды
+				
+				div(class="row")
+					div(class="column column--2")
+						span(class="vertical-helper vertical-helper--middle")
+						div(class="round-img-container")
+							div(class="round-img")
+					div(class="column column--2")
+						div(class="order-form")
+							form(class="form form--order")
+								p(class="form__title") Оставьте свои контактные данные, и&nbsp;мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время
+								input(type="text", class="text-input form__input", placeholder="Ваше имя")
+								input(type="text", class="text-input form__input", placeholder="Ваш телефон")
+								input(type="text", class="text-input form__input", placeholder="Ваш e-mail")
+								input(type="submit", class="button form__btn", value="Заказать")
+								div(class="form__footer")
+									div(class="form-contacts")
+										div(class="form-contacts__column")
+											p(class="form-contacts__text form-contacts__text--bold") Телефон
+											p(class="form-contacts__text form-contacts__text--bold") E-mail
+										div(class="form-contacts__column")
+											p(class="form-contacts__text") 8 3952 00 00 00
+											p(class="form-contacts__text") vodab@gmail.com
+							p(class="form-success-msg")
+								| Ваша заявка 
+								span(class="red-text") принята, 
+								| мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время.
+						
+		include ../blocks/footer.jade
+		
+		script(src="js/vendor/vendor-min.js")
+		script(src="js/global.js")

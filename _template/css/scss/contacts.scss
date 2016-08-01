@@ -1,0 +1,101 @@
+.cities {
+	font-size: 0;
+	list-style: none;
+	padding: 0 2.040816326530612% 30px 2.040816326530612%;
+	border-bottom: 1px solid map-get($colors, blue);
+
+	&--footer {
+		padding-top: 30px;
+		border: none;
+	}
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		width: 31.91489361702128%;
+
+		& + & {margin-left: 2.127659574468085%}
+	}
+
+	&__show-on-the-map {
+		@include font-size(12px);
+		@include font(bold);
+		line-height: 1;
+		color: #a4a4a4;
+		text-transform: uppercase;
+		cursor: pointer;
+		@include transition(color);
+
+		&:hover,
+		&--active {color: map-get($colors, light-blue)}
+
+		&--active {cursor: default}
+	}
+
+	&__map-icon {
+		display: inline-block;
+		width: 0.75em; height: 10px;
+		margin-right: 0.6875em;
+
+		svg {
+			width: 100%; height: auto;
+			max-height: 100%;
+			fill: #a4a4a4;
+			@include transition(fill);
+		}
+	}
+
+	&__show-on-the-map:hover > &__map-icon svg,
+	&__show-on-the-map--active > &__map-icon svg {fill: map-get($colors, light-blue)}
+}
+
+.contacts {
+	list-style: none;
+
+	&__item {
+		@include font-size(16px);
+
+		& + & {margin-top: 1.8125em}
+	}
+
+	&__title {
+		font-size: 1.25em;
+		@include font(bold);
+		line-height: 1;
+		color: map-get($colors, light-blue);
+	}
+
+	&__text {
+		font-size: 1em;
+		@include font();
+		color: #3e3e3e;
+		line-height: 1.125;
+
+		&--bold {@include font(bold)}
+	}
+
+	&__link {
+		color: inherit;
+		text-decoration: none;
+		@include transition(color);
+
+		&:hover {color: map-get($colors, light-blue)}
+	}
+
+	&__title + &__text {margin-top: 0.625em}
+}
+
+.map {
+	height: 449px;
+	position: relative;
+
+	&::after {
+		content: "";
+		width: 100%; height: 15px;
+		background: transparent;
+		z-index: 1000;
+		position: absolute;
+		top: -15px; left: 0;
+		@include shadow(bottom);
+	}
+}

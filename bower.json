@@ -1,0 +1,23 @@
+{
+  "name": "Frontend Boilerplate",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Alexander Gladkikh"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "velocity": "^1.2.3",
+    "imagesloaded": "^4.1.0"
+  }
+}

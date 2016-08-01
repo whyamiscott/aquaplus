@@ -1,0 +1,521 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  line-height: 1;
+  max-width: 1920px;
+  min-width: 1000px;
+  margin: auto;
+  @include font();
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+// START HELPERS
+.vertical-helper {
+	display: inline-block;
+	height: 100%;
+
+	&--middle {vertical-align: middle}
+	&--bottom {vertical-align: bottom}
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.red-text {color: map-get($colors, red)}
+// END HELPERS
+
+
+// START LAYOUT
+.page {
+	min-height: calc(100vh - 201px);
+	padding: 0 0 100.5px 0;
+	position: relative;
+
+	&--contacts {padding: 0}
+}
+
+.content {
+	width: 980px;
+	margin: auto;
+}
+
+.row {
+	font-size: 0;
+	display: flex;
+}
+
+.column {
+	display: inline-block;
+	vertical-align: top;
+
+	&--2 {
+		flex: 0 0 48.97959183673469%;
+
+		& + & {margin-left: 2.040816326530612%}
+
+		&:first-child {padding-left: 2.040816326530612%}
+		&:last-child {padding-right: 2.040816326530612%}
+	}
+}
+// END LAYOUT
+
+
+// START BREADCRUMBS
+.breadcrumbs {
+	list-style: none;
+	font-size: 0;
+	padding: 0 2.040816326530612%;
+	margin-top: 29px;
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		@include font-size(16px);
+		@include font();
+		line-height: 1;
+
+		& + & {
+			margin-left: 1.375em;
+			position: relative;
+		}
+
+		& + &::before {
+			content: "/";
+			display: inline-block;
+			color: map-get($colors, grey);
+			position: absolute;
+			top: 0; left: -0.85em;
+		}
+	}
+
+	&__link {
+		display: inline-block;;
+		color: map-get($colors, blue);
+		text-decoration: none;
+		@include transition(color);
+
+		&:hover {
+			color: map-get($colors, dark-blue);
+		}
+
+		&--current,
+		&--current:hover {color: map-get($colors, grey)}
+	}
+}
+// END BREADCRUMBS
+
+
+// START UI
+.button {
+	display: inline-block;
+	vertical-align: top;
+	background: map-get($colors, blue);
+	border: none;
+	border-radius: 2px;
+	@include font();
+	@include font-size(16px);
+	line-height: 1;
+	color: white;
+	padding: 0.75em 1em;
+	min-width: 11.25em;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+	@include transition(all);
+
+	&:hover,
+	&:focus {
+		background: map-get($colors, dark-blue);
+		color: white;
+	}
+
+	&--header {
+		border: 1px solid white;
+		background: transparent;
+		padding-top: 0.6875em;
+		padding-bottom: 0.6875em;
+		min-width: 12.5em;
+		position: relative;
+		top: 50%;
+		margin-top: -20px;
+
+		&:hover,
+		&:focus {
+			background: white;
+			color: map-get($colors, blue);
+		}
+	}
+
+	&--slide-header {margin-top: 2.5em}
+
+	&--lower-third {
+		margin-top: 1.4375em;
+		min-width: 12.5em;
+	}
+
+	&--product {
+		position: absolute;
+		bottom: 0; left: 0;
+	}
+}
+
+.switcher {
+	display: block;
+	height: 20px; width: 50px;
+	background: white;
+	border: 1px solid map-get($colors, dark-blue);
+	border-radius: 10px;
+	position: relative;
+	outline: none;
+
+	&__ellipse {
+		display: block;
+		width: 16px; height: 16px;
+		background: map-get($colors, red);
+		border-radius: 50%;
+		position: absolute;
+		top: 50%; left: 1px;
+		margin-top: -8px;
+	}
+
+	&--lang {margin: 5px auto 0 auto}
+}
+// END UI
+
+
+// START TITLES
+.slide-content-title,
+.slide-title {
+	@include font(bold);
+	line-height: 1;
+	color: white;
+	text-transform: uppercase;
+}
+
+.slide-content-title {
+	@include font-size(30px);
+	line-height: 1.333333333333333;
+}
+
+.slide-title {@include font-size(40px)}
+
+.main-title {
+	@include font-size(35px);
+	@include font(bold);
+	line-height: 1;
+	color: map-get($colors, red);
+	text-transform: uppercase;
+	text-align: center;
+	padding: 0 2.040816326530612% 1.314285714285714em 2.040816326530612%;
+	margin-top: 1.857142857142857em;
+}
+
+.sub-title {
+	@include font-size(20px);
+	@include font(bold);
+	line-height: 1;
+	color: map-get($colors, blue);
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 1.1em;
+
+	&--contacts {text-align: left}
+}
+
+.breadcrumbs + .main-title {margin-top: 0.2571428571428571em}
+// END TITLES
+
+
+.simple-text {
+	@include font-size(16px);
+	@include font();
+	color: #3e3e3e;
+	line-height: 1.125;
+	padding: 0 2.040816326530612%;
+
+	& + & {margin-top: 1.125em}
+}
+
+.simple-img {
+	display: block;
+	margin: auto;
+	max-width: 100%;
+	height: auto;
+	border: 1px solid map-get($colors, blue);
+}
+
+.simple-images {
+	font-size: 0;
+	width: 1000px;
+	margin-left: -10px;
+
+	&__item-wrap {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		padding: 1%;
+	}
+
+	&__item {
+		width: 100%;
+		padding-bottom: 100%;
+		position: relative;
+	}
+
+	&__img {
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		border: 1px solid map-get($colors, blue);
+	}
+}
+
+* + .simple-text,
+.simple-text + * {
+	margin-top: 39px;
+}
+
+.main-title + .simple-text,
+.sub-title + .simple-text {margin-top: 0}
+
+.simple-images + *,
+* + .simple-images {
+	margin-top: 29px;
+}
+
+
+// START INPUTS
+.text-input {
+	display: block;
+	width: 100%;
+	@include font-size(16px);
+	@include font();
+	line-height: 1;
+	color: map-get($colors, blue);
+	padding: 0.59375em 1em;
+	border: 1px solid map-get($colors, grey);
+	border-radius: 2px;
+	outline: none;
+	@include transition(border);
+
+	&:focus {
+		border-color: map-get($colors, blue);
+	}
+
+	&::-webkit-input-placeholder {color: map-get($colors, grey); @include transition(color)}
+	&::-moz-placeholder          {color: map-get($colors, grey); @include transition(color)}
+	&:-moz-placeholder           {color: map-get($colors, grey); @include transition(color)}
+	&:-ms-input-placeholder      {color: map-get($colors, grey); @include transition(color)}
+}
+
+.error {
+	border-color: map-get($colors, red);
+
+	&::-webkit-input-placeholder {color: map-get($colors, red)}
+	&::-moz-placeholder          {color: map-get($colors, red)}
+	&:-moz-placeholder           {color: map-get($colors, red)}
+	&:-ms-input-placeholder      {color: map-get($colors, red)}
+}
+// END INPUTS
+
+
+// START FORMS
+.form {
+	text-align: center;
+
+	&--callback,
+	&--order {
+		width: 82.96943231441048%;
+		margin: auto;
+	}
+
+	&--fullscreen {
+		display: inline-block;
+		vertical-align: middle;
+		width: 40%;
+		min-width: 300px;
+		margin: auto;
+	}
+
+	&__title {
+		@include font-size(20px);
+		@include font(bold);
+		line-height: 1;
+		color: map-get($colors, blue);
+	}
+
+	&__title + &__input {margin-top: 26px}
+
+	&__input + &__input {margin-top: 15px}
+
+	&__btn {margin-top: 30px}
+
+	&__footer {
+		margin-top: 40px;
+		border-top: 1px solid map-get($colors, blue);
+		padding-top: 23px;
+		text-align: left;
+	}
+}
+
+.form-contacts {
+	font-size: 0;
+
+	&__column {
+		display: inline-block;
+		vertical-align: top;
+		padding: 7.5px 0;
+
+		&:first-child {text-align: right}
+
+		 & + & {
+			 margin-left: 20px;
+			 padding-left: 20px;
+			 border-left: 1px solid map-get($colors, red);
+		 }
+	}
+
+	&__text {
+		@include font-size(16px);
+		@include font();
+		line-height: 1;
+		color: map-get($colors, blue);
+
+		& + & {margin-top: 0.25em}
+
+		&--bold {@include font(bold)}
+	}
+}
+
+.order-form {
+	background: white;
+	border: 1px solid map-get($colors, blue);
+	padding: 38px 0 24px 0;
+	min-height: 100%;
+}
+
+.form-success-msg {
+	width: 82.96943231441048%;
+	margin: auto;
+	@include font(semibold);
+	@include font-size(20px);
+	line-height: 1.2;
+	color: map-get($colors, blue);
+	text-align: center;
+	display: none;
+
+	&--active {display: block}
+
+	&--fullscreen {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+.form-success-msg--fullscreen.form-success-msg--active {display: inline-block}
+// END FORMS
+
+
+// START SOME STUFF
+.round-img-container {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	padding-bottom: 100%;
+	position: relative;
+
+	&::after {
+		content: "";
+		width: 504px; height: 486px;
+		background: url(../img/bottles.png) center no-repeat;
+		position: absolute;
+		bottom: -13px; right: 27%;
+	}
+}
+
+.round-img {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: url(../img/index/slide1/baikal.jpg) center no-repeat;
+	background-clip: cover;
+	border-radius: 50%;
+	-webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.75);
+}
+
+.mfp-bg {
+	z-index: 9998;
+	background: map-get($colors, blue);
+	opacity: 0.5;
+}
+.mfp-wrap {z-index: 9999}
+
+.mfp-img {
+	padding: 0 !important;
+	border: 50px solid white;
+}
+.mfp-bottom-bar {display: none}
+.mfp-close {
+	width: 19px !important;
+	height: 19px !important;
+	background: transparent !important;
+	padding: 0 !important;
+    margin: 0 !important;
+    top: 15px !important;
+    right: 15px !important;
+	opacity: 1 !important;
+	@include transition(all);
+
+	&:hover {
+		transform: rotate(180deg);
+		background: transparent !important;
+	}
+}
+
+.mfp-close > svg {
+	width: 100%; height: 100%;
+	display: block;
+	fill: map-get($colors, dark-blue);
+}
+
+.mfp-preloader,
+.mfp-preloader a {
+	@include font();
+	color: white;
+}
+// END SOME STUFF

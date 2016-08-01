@@ -1,0 +1,115 @@
+//START MENU
+.menu {
+	list-style: none;
+	font-size: 0;
+	width: 950px;
+	margin: auto;
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		width: 20%;
+	}
+
+	&__link {
+		display: block;
+		background: transparent;
+		border-radius: 2px;
+		@include font-size(16px);
+		@include font(semibold);
+		text-decoration: none;
+		text-transform: uppercase;
+		text-align: center;
+		line-height: 1;
+		color: white;
+		padding: 0.75em 0;
+		@include transition(background);
+
+		&:hover {
+			background: map-get($colors, dark-blue);
+		}
+	}
+}
+//END MENU
+
+
+//START HEADER
+.header {
+	background: map-get($colors, blue) url(../img/header-bg.png) center no-repeat;
+
+	&__content {
+		width: 980px; height: 140px;
+		margin: auto;
+		font-size: 0;
+	}
+
+	&__column {
+		width: 33.33333333333333%; height: 100%;
+		display: inline-block;
+		vertical-align: top;
+
+		&--align-right {text-align: right}
+		&--logo {
+			padding: 20px 0;
+			text-align: center;
+		}
+	}
+
+	&__logo {
+		display: inline-block;
+		height: 100%;
+	}
+
+	&__logo-img {
+		height: 100%; width: auto;
+	}
+}
+
+.lang-switcher {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	top: 50%;
+	margin-top: -20.5px;
+
+	&__text {
+		@include font();
+		@include font-size(16px);
+		color: white;
+		line-height: 1;
+		text-align: center;
+	}
+}
+
+.nav {
+	position: relative;
+	z-index: 1;
+	padding-bottom: 20px;
+	background: map-get($colors, blue);
+	@include shadow(bottom);
+
+	&--above-bottle {z-index: 20}
+}
+
+.fixed-nav {
+	position: fixed;
+	z-index: 2000;
+	top: 0; left: 0;
+	width: 100%;
+	background: map-get($colors, blue);
+	opacity: 0;
+	visibility: hidden;
+	transition:visibility 0s linear 0.35s, opacity 0.35s ease;
+	will-change: opacity, visibility;
+
+	&--active {
+		visibility: visible;
+		opacity: 1;
+		transition-delay: 0s;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.fixed-nav {display: none}
+}
+//END HEADER

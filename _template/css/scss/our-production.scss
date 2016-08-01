@@ -1,0 +1,112 @@
+.products {
+	display: flex;
+	width: 95.91836734693878%;
+	margin: auto;
+	font-size: 0;
+	list-style: none;
+}
+
+.product {
+	flex: 0 0 19.14893617021277%;
+	text-align: center;
+	@include font-size(16px);
+	color: map-get($colors, light-blue);
+	padding-bottom: 80px;
+	position: relative;
+
+	& + & {margin-left: 7.801418439716312%}
+
+	&__photo {
+		height: 260px;
+		position: relative;
+		bottom: 0;
+		@include transition(all);
+		text-align: center;
+	}
+
+	&__img {
+		max-height: 100%;
+		max-width: 100%;
+		vertical-align: bottom;
+	}
+
+	&__title {
+		font-size: 1.25em;
+		@include font(bold);
+		line-height: 1.2;
+		text-transform: uppercase;
+		margin-top: 30px;
+	}
+
+	&__description {
+		@include font();
+		font-size: 1em;
+		line-height: 1.125;
+		margin-top: 1em;
+		padding-top: 1em;
+		border-top: 1px solid map-get($colors, light-blue);
+	}
+
+	&:hover &__photo {
+		bottom: 30px;
+	}
+}
+
+.fullscreen-form {
+	position: absolute;
+	top: 200px; left: 0;
+	width: 100%;
+	height: calc(100% - 200px); // header + nav
+	z-index: 10;
+	font-size: 0;
+	@include fade();
+
+	&--active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__column {
+		display: inline-block;
+		height: 100%;
+		width: 50%;
+		vertical-align: top;
+		background: white;
+		text-align: center;
+		position: relative;
+
+		&:first-child {
+			background: url(../img/index/slide5/bg.jpg) left center no-repeat;
+			background-size: cover;
+			padding: 90px 0;
+		}
+	}
+
+	&__bottle {
+		display: none;
+		&--active {display: block}
+	}
+
+	&__bottle-img {
+		display: none;
+		vertical-align: middle;
+		max-height: 100%; width: auto;
+
+		&--active {display: inline}
+	}
+
+	&__close {
+		width: 26px; height: 26px;
+		position: absolute;
+		top: 50px; left: 50px;
+		cursor: pointer;
+		@include transition(all);
+
+		&:hover {transform: rotate(180deg)}
+	}
+
+	&__close-icon {
+		width: 100%; height: 100%;
+		fill: map-get($colors, blue);
+	}
+}

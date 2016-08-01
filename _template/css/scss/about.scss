@@ -1,0 +1,34 @@
+.summury {
+	font-size: 0;
+	list-style: none;
+	padding: 30px 2.040816326530612%;
+	background: #f5faff;
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		width: 31.91489361702128%;
+		@include font-size(20px);
+
+		& + & {margin-left: 2.127659574468085%}
+	}
+
+	&__text {
+		font-size: 1em;
+		@include font();
+		line-height: 1;
+		color: map-get($colors, light-blue);
+
+		&--middle,
+		&--big {
+			@include font(bold);
+			margin-top: 0.4em;
+		}
+
+		&--middle {font-size: 1.2em}
+		&--big {font-size: 1.75em}
+	}
+}
+
+* + .summury,
+.summury + * {margin-top: 25px}

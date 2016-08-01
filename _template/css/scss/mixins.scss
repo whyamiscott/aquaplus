@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'ProximaNova-Regular';
+  src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),  url('../fonts/ProximaNova-Regular.otf')  format('opentype'),
+         url('../fonts/ProximaNova-Regular.woff') format('woff'), url('../fonts/ProximaNova-Regular.ttf')  format('truetype'), url('../fonts/ProximaNova-Regular.svg#ProximaNova-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova-Bold';
+  src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/ProximaNova-Bold.otf')  format('opentype'),
+         url('../fonts/ProximaNova-Bold.woff') format('woff'), url('../fonts/ProximaNova-Bold.ttf')  format('truetype'), url('../fonts/ProximaNova-Bold.svg#ProximaNova-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova-Semibold';
+  src: url('../fonts/ProximaNova-Semibold.eot?#iefix') format('embedded-opentype'),  url('../fonts/ProximaNova-Semibold.otf')  format('opentype'),
+       url('../fonts/ProximaNova-Semibold.woff') format('woff'), url('../fonts/ProximaNova-Semibold.ttf')  format('truetype'), url('../fonts/ProximaNova-Semibold.svg#ProximaNova-Semibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font($weight: '') {
+	@if $weight == "bold" {
+		font-family: 'ProximaNova-Bold', sans-serif;
+	} @else if $weight == "semibold" {
+		font-family: 'ProximaNova-Semibold', sans-serif;
+	} @else {
+		font-family: 'ProximaNova-Regular', sans-serif;
+	}
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin triangle($dir, $size, $color) {
+  content: "";
+  position: absolute;
+  border: $size transparent solid;
+
+  @if ($dir == "top" or $dir == "up") {
+     border-bottom-color: $color;
+  } @else if ($dir == "right" or $dir == "after") {
+    border-left-color: $color;
+  } @else if ($dir == "bottom" or $dir == "down") {
+    border-top-color: $color;
+  } @else if ($dir == "left" or $dir == "before") {
+    border-right-color: $color;
+  }
+}
+
+@mixin arrow($dir, $size, $color, $bgcolor) {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border: $size transparent solid;
+  }
+
+  &:before {
+    @if ($dir == "top" or $dir == "up") {
+        border-bottom-color: $color;
+    }
+    @else if ($dir == "right" or $dir == "after") {
+        border-left-color: $color;
+    }
+    @else if ($dir == "bottom" or $dir == "down") {
+        border-top-color: $color;
+    }
+    @else if ($dir == "left" or $dir == "before") {
+        border-right-color: $color;
+    }
+  }
+
+  &:after {
+    @if ($dir == "top" or $dir == "up") {
+        border-bottom-color: $bgcolor;
+    }
+    @else if ($dir == "right" or $dir == "after") {
+        border-left-color: $bgcolor;
+    }
+    @else if ($dir == "bottom" or $dir == "down") {
+        border-top-color: $bgcolor;
+    }
+    @else if ($dir == "left" or $dir == "before") {
+        border-right-color: $bgcolor;
+    }
+  }
+}
+
+@mixin transition($args:all, $time:0.35s) {
+  -webkit-transition: $args $time ease;
+  -moz-transition: $args $time ease;
+  -ms-transition: $args $time ease;
+  -o-transition: $args $time ease;
+  transition: $args $time ease;
+}
+
+@mixin shadow($dir, $color:rgba(0, 0, 0, 0.35)) {
+    @if $dir == "top" {
+        -webkit-box-shadow: 0 -5px 5px -5px $color;
+        -moz-box-shadow: 0 -5px 5px -5px $color;
+        box-shadow: 0 -5px 5px -5px $color;
+    } @else {
+        -webkit-box-shadow: 0 5px 5px -5px $color;
+        -moz-box-shadow: 0 5px 5px -5px $color;
+        box-shadow: 0 5px 5px -5px $color;
+    }
+}
+
+@mixin fade($time:0.35s) {
+	visibility: hidden;
+    opacity: 0;
+	-webkit-transition: visibility 0s, opacity ease $time;
+    -moz-transition: visibility 0s, opacity ease $time;
+    -o-transition: visibility 0s, opacity ease $time;
+    transition: visibility 0s, opacity ease $time;
+}

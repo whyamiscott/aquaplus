@@ -1,0 +1,212 @@
+doctype html
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="x-ua-compatible", content="ie=edge")
+		title Главная
+		meta(name="description", content="")
+		link(rel="apple-touch-icon" href="apple-touch-icon.png")
+		link(rel="stylesheet" href="css/main.css")
+	// index page must has .main-page class !!!
+	body(class="not-load main-page")
+		<!--[if lt IE 8]><p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите</a> свой браузер.</p><![endif]-->
+
+		div(class="loader", id="loader")
+			div(class="loader__content")
+				img(class="loader__logo", src="img/logo.svg")
+				div(class="loader__bottle-container")
+					div(class="loader__bottle loader__bottle--blue")
+						img(class="loader__bottle-img", src="img/blue-bottle.svg")
+					div(class="loader__bottle loader__bottle--white", id="progress-bottle")
+						img(class="loader__bottle-img", src="img/white-bottle.svg")
+				div(class="loader__progressbar")
+					div(class="loader__bar")
+						div(class="loader__bar-value", id="progress-bar")
+					p(class="loader__text", id="progress-text")
+						| Загрузка 
+						span(class="loader__value", id="progress-value") 0
+						| %
+				
+
+		include ../blocks/header.jade
+		
+		div(class="bottle-container bottle-container--first-slide", id="bottle-container")
+			div(class="bottle", id="bottle", style="transform: scale(0.6796296296296296)")
+				img(src="img/bottle/1.png", class="bottle__img", id="bottle_1")
+				img(src="img/bottle/2.png", class="bottle__img", id="bottle_2")
+				img(src="img/bottle/3.png", class="bottle__img" id="bottle_3")
+				img(src="img/bottle/4.png", class="bottle__img" id="bottle_4")
+				img(src="img/bottle/5.png", class="bottle__img" id="bottle_5")
+				img(src="img/bottle/6.png", class="bottle__img" id="bottle_6")
+				img(src="img/bottle/7.png", class="bottle__img" id="bottle_7")
+				img(src="img/bottle/8.png", class="bottle__img" id="bottle_8")
+				img(src="img/bottle/9.png", class="bottle__img" id="bottle_9")
+				img(src="img/bottle/10.png", class="bottle__img" id="bottle_10")
+				img(src="img/bottle/11.png", class="bottle__img" id="bottle_11")
+				img(src="img/bottle/12.png", class="bottle__img" id="bottle_12")
+				img(src="img/bottle/13.png", class="bottle__img" id="bottle_13")
+				img(src="img/bottle/14.png", class="bottle__img" id="bottle_14")
+				img(src="img/bottle/15.png", class="bottle__img" id="bottle_15")
+		
+		// THIS IS FOR FIRST SLIDE
+		div(class="sticker sticker--first-slide sticker--over-bottle", id="first-slide-sticker")
+			div(class="sticker__content")
+				p(class="sticker__title sticker__title--first")
+					| Вода
+					br
+					span(class="red-text") Байкала
+				p(class="sticker__info sticker__info--first")
+					| Объем
+					br
+					| 0.33-19л
+		
+		div(class="slides")
+			// SLIDE_1 START			
+			// rel is for bottle top offset
+			div(class="slide slide--first slide--active", id="slide1", rel="295")
+				div(class="phantom-bottle phantom-bottle--first")
+					img(src="img/bottle/1.png", class="phantom-bottle__img")
+				div(class="slide__circle slide__circle--img will-animate will-animate--first", id="first-slide-img")
+				div(class="slide__content")
+					img(class="slide__bottles will-animate will-animate--first", id="slide1__bottles" src="img/index/slide1/bottles.png", alt="Бутылки")
+					ul(class="facts facts--first-slide")
+						li(class="fact fact--first-slide will-animate will-animate--first" id="slide1__fact1")
+							div(class="fact__icon fact__icon--waves")
+							div(class="fact__text")
+								p(class="fact__p") Удаленность точки водозабора
+								p(class="fact__p fact__p--big") 1 600 МЕТРОВ
+						li(class="fact fact--first-slide will-animate will-animate--first" id="slide1__fact2")
+							div(class="fact__icon fact__icon--drop")
+							div(class="fact__text")
+								p(class="fact__p") Точка забора воды находится на глубине
+								p(class="fact__p fact__p--big") 500 МЕТРОВ
+					p(class="scroll-down")
+						span(class="scroll-down__text", id="scroll-down") Прокрутите вниз
+			// SLIDE_1 END
+			
+			// rel is for bottle bottom offset
+			div(class="slide slide--second", id="slide2", rel="150")
+				div(class="phantom-bottle phantom-bottle--active phantom-bottle--default")
+					img(src="img/bottle/1.png", class="phantom-bottle__img")
+				div(class="slide__circle slide__circle--second slide__circle--filled will-animate" id="slide2__circle")
+				div(class="lower-third lower-third--second will-animate" id="slide2__lower-third")
+					div(class="lower-third__content lower-third__content--second lower-third__content--quality-control")
+						p(class="lower-third__text lower-third__text--second lower-third__text--big lower-third__text--quality-control") 
+							span(class="red-text") Контроль качества
+				div(class="slide__content slide__content--second")
+					ul(class="slide__info-column")
+						li(class="slide__info will-animate" id="slide2__info1")
+							h3(class="slide-content-title") Контроль качества
+							p(class="slide__text")
+								| Технология водоподготовки осуществляется по&nbsp;научно обоснованному патенту &laquo;Лимнологического института Сибирского отделения Российской академии наук&raquo;. Технологический процесс розлива спроектирован таким образом, при котором природная уникальность байкальской воды сохраняется на&nbsp;очень длительный срок.
+						li(class="slide__info will-animate" id="slide2__info2")
+							h3(class="slide-content-title") Сертификаты
+							ul(class="sertificates")
+								li(class="sertificates__item")
+									a(class="sertificates__link", href="img/baikal1.jpg", target="_blank")
+								li(class="sertificates__item")
+									a(class="sertificates__link", href="img/baikal2.jpg", target="_blank")
+								
+								
+			div(class="slide slide--third", id="slide3", rel="150")
+				div(class="phantom-bottle phantom-bottle--active phantom-bottle--default")
+					img(src="img/bottle/1.png", class="phantom-bottle__img")
+				div(class="slide__circle slide__circle--filled will-animate" id="slide3__circle")
+				//div(class="slide__pipes", id="pipes-bg")
+				div(class="slide__content slide__content--third")
+					div(class="slide__header will-animate", id="slide3__header")
+						h2(class="slide-title") КАЧЕСТВО ВОДЫ БАЙКАЛА
+						p(class="slide__text slide__text--big")
+							| Отвечаем самым строгим стандартам качества питьевой воды,
+							br
+							| принятым в&nbsp;мировом собществе.
+						a(class="button button--slide-header") Скачать документ
+					ul(class="slide__info-column")
+						li(class="slide__info will-animate" id="slide3__info1")
+							h3(class="slide-content-title") УНИКАЛЬНОСТЬ БАЙКАЛЬСКОЙ ВОДЫ
+							p(class="slide__text")
+								| Уникальность Байкальской Воды: Вода озера Байкал содержит 15,2&nbsp;мг в&nbsp;литре кальция и&nbsp;4,2&nbsp;мг/л магния. В&nbsp;воде Ладожского озера кальция 7,1&nbsp;мг/л, а&nbsp;магния 1,9&nbsp;мг/л ,а вода альпийских озер, на&nbsp;берегах которых селились древние европейцы, еще менее минерализована.
+					ul(class="facts facts--many")
+						li(class="fact fact--many will-animate" id="slide3__fact1")
+							div(class="fact__icon fact__icon--no-bg fact__icon--h2o")
+							div(class="fact__text")
+								p(class="fact__p") Высокая насыщенность кислородом
+								p(class="fact__p fact__p--big") 12&nbsp;мг/л
+						li(class="fact fact--many will-animate" id="slide3__fact2")
+							div(class="fact__icon fact__icon--no-bg fact__icon--diamond")
+							div(class="fact__text")
+								p(class="fact__p") Оптимальная минерализация
+								p(class="fact__p fact__p--big") 100&nbsp;мг/л
+						li(class="fact fact--many will-animate" id="slide3__fact3")
+							div(class="fact__icon fact__icon--no-bg fact__icon--plus-drop")
+							div(class="fact__text")
+								p(class="fact__p") Величина pH&nbsp;воды близка к&nbsp;pH&nbsp;крови человека
+								p(class="fact__p fact__p--big") pH&nbsp;воды &asymp; pH&nbsp;крови
+			
+			
+			div(class="slide slide--fourth", id="slide4", rel="150")
+				div(class="phantom-bottle phantom-bottle--active phantom-bottle--default")
+					img(src="img/bottle/1.png", class="phantom-bottle__img")
+				div(class="slide__circle slide__circle--filled will-animate" id="slide4__circle")
+				div(class="slide__content slide__content--fourth")
+					div(class="slide__header will-animate", id="slide4__header")
+						h2(class="slide-title") РАБОТАЕМ С 1999 ГОДА
+						a(class="button button--slide-header") Подробнее
+					ul(class="slide__info-column")
+						li(class="slide__info will-animate" id="slide4__info1")
+							h3(class="slide-content-title") 
+								| НАШЕ 
+								br
+								| ПРОИЗВОДСТВО
+							p(class="slide__text")
+								| Производство расположено
+								br
+								| на&nbsp;берегу озера Байкал
+							ul(class="sertificates")
+								li(class="sertificates__item")
+									a(class="sertificates__link", href="img/baikal1.jpg", target="_blank")
+					ul(class="facts facts--many")
+						li(class="fact fact--many will-animate" id="slide4__fact1")
+							div(class="fact__icon fact__icon--no-bg fact__icon--eye")
+							div(class="fact__text")
+								p(class="fact__p") Компания ООО&nbsp;«Аква» основана
+								p(class="fact__p fact__p--big") в&nbsp;1999&nbsp;году
+						li(class="fact fact--many will-animate" id="slide4__fact2")
+							div(class="fact__icon fact__icon--no-bg fact__icon--baikal")
+							div(class="fact__text")
+								p(class="fact__p") Производство глубинной, байкальской воды
+								p(class="fact__p fact__p--big") 16&nbsp;лет
+						li(class="fact fact--many will-animate" id="slide4__fact3")
+							div(class="fact__icon fact__icon--no-bg fact__icon--bottles")
+							div(class="fact__text")
+								p(class="fact__p") Объем ПЭТ тары собственного производства
+								p(class="fact__p fact__p--big") от 0,33 до 19&nbsp;л
+		
+			div(class="slide slide--fifth slide--last", id="slide5", rel="0")
+				div(class="lower-third lower-third--big will-animate" id="slide5__lower-third")
+					div(class="lower-third__content lower-third__content--drink")
+						p(class="lower-third__text lower-third__text--drink")
+							span(class="red-text") ПЕЙТЕ
+							|  ВОДУ
+							span(class="red-text")
+								|  БАЙКАЛА
+								br 
+								| НЕ ТОЛЬКО ДОМА,
+							br
+							| но и на улице, в машине
+							br
+							| или офисе!
+						a(class="button button--lower-third") Заказать воду
+				div(class="phantom-bottle phantom-bottle--active phantom-bottle--last")
+					img(src="img/bottle/1.png", class="phantom-bottle__img")
+				ul(class="persons")
+					li(class="person person--girl will-animate", rel="left")
+						img(class="person__img", src="img/index/slide5/girl.png", alt="Девушка с водой")
+					li(class="person person--kid will-animate", rel="right")
+						img(class="person__img", src="img/index/slide5/kid.png", alt="Мальчик с водой")
+		
+		include ../blocks/footer.jade
+		
+		script(src="js/vendor/vendor-min.js")
+		script(src="js/index.js")
+		

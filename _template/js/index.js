@@ -325,9 +325,7 @@ function generateRandomPerson() { // girl or kid on the last slide
 
 
 var finishLoad = function() {
-	console.log('asd');
 	$('#header').velocity('scroll', {duration: 0}); // set scroll to first slide
-
 	$('body').removeClass('not-load');
 
 	$('.will-animate--first').each(function() {$(this).addClass('prepare-for-animation')});

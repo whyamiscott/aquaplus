@@ -3,7 +3,7 @@
 
 ## Technology colophon
 * HTML (Jade)
-* CSS (SCSS)
+* CSS (SCSS, BEM Methodology)
 * JS (jQuery, Velocity.js)
 * SVG
 * GULP

@@ -8,5 +8,6 @@
 * SVG
 * GULP
 
-Copyright (c) 2016 [Mega Mir IT](http://mmit.ru)
-** Not for commercial use.
+© 2016 [Mega Mir IT](http://mmit.ru)
+
+*Not for commercial use.*

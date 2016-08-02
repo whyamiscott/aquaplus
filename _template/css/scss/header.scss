@@ -25,7 +25,8 @@
 		padding: 0.75em 0;
 		@include transition(background);
 
-		&:hover {
+		&:hover,
+		&--active {
 			background: map-get($colors, dark-blue);
 		}
 	}

@@ -1,2 +1,2 @@
 # Aquaplus front-end developing
-[Watch demo](https://www.whyamiscott.github.io/aquaplus)
+[Watch demo](https://whyamiscott.github.io/aquaplus/)
